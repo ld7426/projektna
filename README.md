@@ -19,10 +19,10 @@ V osnovi se v zvezku analizira naključna postaja, a uporabnik si lahko sam izbe
 
 ## Problemi z matplotlib
 
-Če se graf ne pokaže je potrebno pognati ukaza
-\\ *plt.close()*
-\\*%matplotlib inline*
-\\in šele nato še enkrat zagnati celico, ki naj bi prikazala graf.
+Če se graf ne pokaže je potrebno pognati ukaza  
+ *plt.close()*  
+*%matplotlib inline*  
+in šele nato še enkrat zagnati celico, ki naj bi prikazala graf.
 
 
 
