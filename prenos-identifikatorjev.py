@@ -31,7 +31,7 @@ for vrstica in uporabnevrstice:
     zacasna = zacasna.replace("&#x010D;", "č").replace("&#x010C;", "Č").replace("&#x0160;", "Š").replace("&#x0161;", "š").replace("&#x017E;", "ž").replace("&#x017D;", "Ž") 
     #tale koda je ugly af, ampak deluje, tak da se ne bom ukvarjal z drugim, zamenja pa čudne characterje s šumniki, ker so čudni characterji motili, na primer imeli so ; notr
     zacasna = zacasna.split(" - ")
-    id = vrstica[-18:-3]
+    id = vrstica[-18:-13]
     
     slovar.append({"Ime": zacasna[0], "Reka":zacasna[-1], "ID":id})
     
