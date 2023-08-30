@@ -34,6 +34,8 @@ for vrstica in slovar:
         except:
             raise Exception("Napaka pri iskanju vrstic")
     
+    pandatabelca = pandatabelca[::-1] #obrnemo tabelo, da je časovno urejena
+    
     # spravimo v .csv file
     pandatabelca.to_csv("postaje/" + vrstica["ID"] + ".csv", index=False) #ime je enako IDju postaje, mogoče bi edino zbrisal .html stran?
     # pogledamo, da se da prebrati fajl
