@@ -12,8 +12,8 @@ page = "https://www.arso.gov.si/vode/podatki/amp/" #stran iz katere nalagam poda
 
 for vrstica in slovar:
     stej = stej+1
-    website= page + vrstica["ID"] + "_t_30.html"
-    stran = bs(requests.get(website).text, "lxml")
+    website= page + vrstica["ID"] + "_t_30.html" #spletne stran, ki se spreminja glede na ID postaje
+    stran = bs(requests.get(website).text, "lxml") #mogoče ne bi bilo treba uporabiti bs?
     table1 = stran.find("table", id="glavna")
 
     vrstepodatkov = []
@@ -29,7 +29,7 @@ for vrstica in slovar:
             row_data = j.find_all("td")
             row = [i.text for i in row_data]
             length = len(pandatabelca)
-            if row !=[]:
+            if row !=[]: # nekatere vrstice so bile prazne, zato sem jih izpustil, da ne povzročajo problemov
                 pandatabelca.loc[length] = row
         except:
             raise Exception("Napaka pri iskanju vrstic")
@@ -43,7 +43,6 @@ for vrstica in slovar:
         poskusi = pd.read_csv("postaje/" + vrstica["ID"] + ".csv")
 
     except:
-        raise Exception("Ustvarjene datoteke ni mogoče prebrati, preveri, če je ustvarjenje uspelo")
+        raise Exception("Ustvarjene datoteke ni mogoče prebrati, preveri, če je ustvarjanje uspelo")
     
     print("Prenešeno " + str(stej) + " od " + str(len(slovar)) + " postaj.") #izpiše koliko postaj je že prenešenih, lahko se tudi zakomentira, če ne želiš izpisa
-#https://meteo.arso.gov.si/webmet/archive/data.xml?lang=si&vars=16&group=halfhourlyData0&type=halfhourly&id=2623&d1=2023-07-25&d2=2023-08-25
