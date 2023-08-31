@@ -37,7 +37,7 @@ for vrstica in slovar:
     pandatabelca = pandatabelca[::-1] #obrnemo tabelo, da je časovno urejena
     
     # spravimo v .csv file
-    pandatabelca.to_csv("postaje/" + vrstica["ID"] + ".csv", index=False) #ime je enako IDju postaje, mogoče bi edino zbrisal .html stran?
+    pandatabelca.to_csv("postaje/" + vrstica["ID"] + ".csv", index=False) #ime je enako IDju postaje
     # pogledamo, da se da prebrati fajl
     try:
         poskusi = pd.read_csv("postaje/" + vrstica["ID"] + ".csv")
